@@ -1,0 +1,12 @@
+<div *ngIf="movieDetails$ | async as movieDetails">
+  <h2>{{ movieDetails.title }}</h2>
+  <img [src]="movieDetails.poster" alt="Movie Poster" />
+  <h4>Details</h4>
+  <p>Summary: {{ movieDetails.summary }}</p>
+  <p>Box Office: {{ movieDetails.boxOffice ? (movieDetails.boxOffice | formatBudget) : '' }}</p>
+  <p>Budget: {{ movieDetails.budget | formatBudget }}</p>
+  <p>Duration: {{ movieDetails.duration | formatDuration }}</p>
+  <p>Producers: {{ movieDetails.producers?.join(', ') }}</p>
+  <p>Cinematographers: {{ movieDetails.cinematographers?.join(', ') }}</p>
+</div>
+<button (click)="back()">Back</button>

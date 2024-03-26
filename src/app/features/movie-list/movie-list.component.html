@@ -1,0 +1,9 @@
+<app-filter-movie-list [movies]="movies" (filtredMoviesEmmiter)="getFilteredMovies($event)"></app-filter-movie-list>
+<div *ngFor="let movie of filteredMovies">
+  <h4>{{ movie.title }}</h4>
+  <p>Release Date: {{ movie.releaseDate }}</p>
+  <p>Budget: {{ movie.budget | formatBudget }}</p>
+  <p>Duration: {{ movie.duration | formatDuration }}</p>
+  <button (click)="viewDetails(movie.id)">Details</button>
+</div>
+<div *ngIf="filteredMovies.length === 0" class="no-data-found">No movies found</div>
